@@ -37,7 +37,7 @@ const TableClient = ({
                 <Typography fontWeight={600}>{client.name}</Typography>
               </TableCell>
               <TableCell align="center">
-                <Typography fontWeight={600}>$30.000</Typography>
+                <Typography fontWeight={600}>${ client.saldoTotal}</Typography>
               </TableCell>
               <TableCell align="center">
                 <IconButton onClick={()=>watchMontos(client.name,client.id)}>

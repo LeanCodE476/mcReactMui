@@ -16,8 +16,8 @@ const TableMontos = ({
   clientList,
   idClientSelected,
   deleteMonto,
-
   watchNota,
+  editMonto
 }) => {
   const formatNumber = (number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -55,7 +55,7 @@ const TableMontos = ({
                     ) : null}
                   </TableCell>
                   <TableCell align="center">
-                    <IconButton>
+                    <IconButton onClick={()=>editMonto(monto.id)}>
                       <EditIcon sx={{ color: "green" }} />
                     </IconButton>
                   </TableCell>

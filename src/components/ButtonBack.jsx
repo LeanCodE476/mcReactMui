@@ -9,7 +9,7 @@ const ButtonBack = ({
   return (
     <Button
       variant="contained"
-      sx={{ bgcolor: "green", p: 1, margin: "1rem 0 1rem 0" }}
+      sx={{ bgcolor: "green", p: .5, margin: "1rem 0 1rem 0",textAlign:'center'}}
       onClick={() => {
         setIsWatch(true);
         setNameClient("");
@@ -18,7 +18,6 @@ const ButtonBack = ({
       }}
     >
       <ArrowBackIcon />
-      Volver
     </Button>
   );
 };

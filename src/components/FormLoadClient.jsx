@@ -7,7 +7,14 @@ const FormLoadClient = ({
   cleanInput,
 }) => {
   return (
-    <FormControl sx={{ m: "1rem 0 0 -1.4rem", mb: 2, display: "flex", flexDirection: "row" }}>
+    <FormControl sx={
+      {
+        m: "1rem 0 0 -1rem", mb: 2, display: "flex", flexDirection: "row", flexWrap: 'wrap',
+        justifyContent: 'center',
+        alignItems:'center',
+        gap:1,
+
+      }}>
       <TextField
         id="outlined-basic"
         label="Nombre de cliente"

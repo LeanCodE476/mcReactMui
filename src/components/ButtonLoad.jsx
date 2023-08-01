@@ -8,7 +8,7 @@ const ButtonLoadClient = ({ setter,text }) => {
         backgroundColor: "#4525d1",
         color: "white",
         padding: ".6rem 1rem .6rem 1rem",
-        margin: "1rem 0 1rem -1.4rem",
+        margin: "1rem 0 1rem -1rem",
         borderRadius: "5px",
       }}
       onClick={() =>setter(true)}
