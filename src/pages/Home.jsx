@@ -240,7 +240,7 @@ const Home = () => {
       });
 
       setClientList(updatedClientList);
-      enqueueSnackbar("--Monto eliminado correctamente--", {
+      enqueueSnackbar("Monto eliminado correctamente", {
         variant: "warning",
         anchorOrigin: {
           vertical: "top",
@@ -263,38 +263,45 @@ const Home = () => {
   };
 
   //function to update an amount
-  const updateMonto = () => {
-    const updatedClientList = clientList.map((client) => {
-      if (client.id === idClientSelected) {
-        const updatedMontos = client.montos.map((monto) => {
-          if (monto.id === idMonto) {
-            if (newMonto.length > 0 || newNota.length > 0) {
-              return { ...monto, monto: newMonto, nota: newNota };
-            }
+const updateMonto = () => {
+  const updatedClientList = clientList.map((client) => {
+    if (client.id === idClientSelected) {
+      const updatedMontos = client.montos.map((monto) => {
+        if (monto.id === idMonto) {
+          // Verificar si hay cambios en el monto o en la nota
+          if (newMonto.length > 0 || newNota.length > 0) {
+            // Si hay cambios, crear un nuevo objeto con el monto actualizado o la nota actualizada
+            return {
+              ...monto,
+              monto: newMonto.length > 0 ? newMonto : monto.monto,
+              nota: newNota.length > 0 ? newNota : monto.nota,
+            };
           }
-          return monto;
-        });
-        return {
-          ...client,
-          montos: updatedMontos,
-          saldoTotal: calculateTotal(updatedMontos),
-        };
-      }
-      return client;
-    });
+        }
+        return monto;
+      });
+      return {
+        ...client,
+        montos: updatedMontos,
+        saldoTotal: calculateTotal(updatedMontos),
+      };
+    }
+    return client;
+  });
 
-    setClientList(updatedClientList);
+  setClientList(updatedClientList);
 
-    setOpenMonto(false);
+  setOpenMonto(false);
 
-    enqueueSnackbar("Monto editado correctamente", {
-      variant: "success",
-      anchorOrigin: {
-        vertical: "top",
-        horizontal: "center",
-      },
-    });
-  };
+  enqueueSnackbar("Monto editado correctamente", {
+    variant: "success",
+    anchorOrigin: {
+      vertical: "top",
+      horizontal: "center",
+    },
+  });
+};
+
 
   // Check if the screen width is small (e.g., mobile devices)
   const theme = useTheme();
